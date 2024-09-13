@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFx.PartidaController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Label fx:id="qualRodada" layoutX="36.0" layoutY="37.0" text="Rodada">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="vezDoJogadorX" layoutX="35.0" layoutY="60.0" text="Vez do jogador">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="485.0" layoutY="37.0" text="Jogadores">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador1" layoutX="456.0" layoutY="67.0" text="Jogadores 1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador2" layoutX="456.0" layoutY="87.0" text="Jogadores 2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador3" layoutX="456.0" layoutY="107.0" text="Jogadores 3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador4" layoutX="456.0" layoutY="127.0" text="Jogadores 4">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador5" layoutX="456.0" layoutY="147.0" text="Jogadores 5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="jogador6" layoutX="456.0" layoutY="167.0" text="Jogadores 6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="rolarDados" layoutX="36.0" layoutY="320.0" mnemonicParsing="false" onAction="#rolarDadosAction" text="Rolar dados" />
+            <Button fx:id="passarJogada" layoutX="36.0" layoutY="360.0" mnemonicParsing="false" onAction="#passarJogadaAction" text="Passar a jogada" />
+            <Label fx:id="dado1" layoutX="383.0" layoutY="250.0" text="Dado 1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="dado2" layoutX="383.0" layoutY="302.0" text="Dado 2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicaoJogadorAtual" layoutX="36.0" layoutY="132.0" text="Posição">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao1" layoutX="552.0" layoutY="67.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao2" layoutX="552.0" layoutY="87.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao3" layoutX="552.0" layoutY="107.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao4" layoutX="552.0" layoutY="127.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao5" layoutX="552.0" layoutY="147.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="posicao6" layoutX="552.0" layoutY="167.0" text="Posição">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="somaDosDados" layoutX="383.0" layoutY="345.0" text="Soma dos dados: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imagemDaPeca" fitHeight="90.0" fitWidth="121.0" layoutX="36.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imagemBone" fitHeight="64.0" fitWidth="64.0" layoutX="185.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imagens_da_peca/vazio.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imagemOculos" fitHeight="64.0" fitWidth="64.0" layoutX="185.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imagens_da_peca/vazio.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imagemMoletom" fitHeight="64.0" fitWidth="64.0" layoutX="185.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/imagens_da_peca/vazio.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="descricaoJogadorLabel" alignment="TOP_LEFT" layoutX="35.0" layoutY="90.0" prefHeight="46.0" prefWidth="401.0" text="Vez do jogador" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="escolhaDaCasaLabel" layoutX="149.0" layoutY="333.0" promptText="Qual casa deseja ir" />
+            <Button fx:id="continuarBtn" layoutX="150.0" layoutY="360.0" mnemonicParsing="false" onAction="#continuarOnAction" prefHeight="25.0" prefWidth="149.0" text="Continuar" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
