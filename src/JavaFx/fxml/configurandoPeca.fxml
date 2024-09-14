@@ -78,6 +78,11 @@
                   <Font size="18.0" />
                </font>
             </RadioButton>
+            <RadioButton fx:id="vermelho" layoutX="221.0" layoutY="347.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="131.0" text="vermelho" toggleGroup="$grupoCOr">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </RadioButton>
             <Label layoutX="22.0" layoutY="111.0" prefHeight="36.0" prefWidth="131.0" text="Jogador ">
                <font>
                   <Font name="Century Gothic" size="25.0" />

@@ -76,6 +76,9 @@ public class ConfigurandoPecaController {
     @FXML
     private RadioButton verde;
 
+    @FXML
+    private RadioButton vermelho;
+
     private ArrayList<String> jogadores = new ArrayList<>();
 
     private ArrayList<Jogador> jogadoresObj = new ArrayList<>();

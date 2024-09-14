@@ -178,6 +178,7 @@ public class PartidaController {
                 add("amarelo");
                 add("roxo");
                 add("verde");
+                add("vermelho");
             }
         };
 
@@ -372,6 +373,44 @@ public class PartidaController {
                                     getClass().getResourceAsStream("./images/imagens_da_peca/vazio.png"));
                             imagemMoletom.setImage(iMoletonVazio);
                         }
+                        break;
+                    }
+
+                    case "vermelho" -> {
+                        Image imagem = new Image(
+                                getClass().getResourceAsStream("./images/imagens_da_peca/" + x + ".png"));
+                        imagemDaPeca.setImage(imagem);
+                        if (jogadoresObj.get(jogadorAtual).getDescricao().contains("bone")) {
+                            Image iBone = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/bone.png"));
+                            imagemBone.setImage(iBone);
+                        } else {
+                            Image iBoneVazio = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/vazio.png"));
+                            imagemBone.setImage(iBoneVazio);
+                        }
+
+                        if (jogadoresObj.get(jogadorAtual).getDescricao().contains("oculos")) {
+                            Image iOculos = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/oculos.png"));
+                            imagemOculos.setImage(iOculos);
+                        } else {
+                            Image iOculosVazio = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/vazio.png"));
+                            imagemOculos.setImage(iOculosVazio);
+                        }
+
+                        // Verificar se o jogador tem moletom
+                        if (jogadoresObj.get(jogadorAtual).getDescricao().contains("moleton")) {
+                            Image iMoleton = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/moletom.png"));
+                            imagemMoletom.setImage(iMoleton);
+                        } else {
+                            Image iMoletonVazio = new Image(
+                                    getClass().getResourceAsStream("./images/imagens_da_peca/vazio.png"));
+                            imagemMoletom.setImage(iMoletonVazio);
+                        }
+
                         break;
                     }
 
