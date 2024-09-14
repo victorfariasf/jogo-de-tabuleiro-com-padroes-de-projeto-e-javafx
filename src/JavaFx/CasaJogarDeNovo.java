@@ -12,6 +12,7 @@ public class CasaJogarDeNovo extends Casa {
     @Override
     public void aplicarRegra(ArrayList<Jogador> jogadores, int jogadorAtual) {
         System.out.println("Jogue de novo");
+        jogadores.get(jogadorAtual).setJogarNovamente(true);
     }
 
 }

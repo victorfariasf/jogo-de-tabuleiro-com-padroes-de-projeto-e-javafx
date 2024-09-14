@@ -62,6 +62,7 @@ public class ModalAvisoNaoJogaController {
             } else {
                 jogador.setPodeJogar(true);
                 jogador.setRodadasSemJogar(0);
+                jogador.gastarMoeda(1);
                 Stage stage = (Stage) pagarBtn.getScene().getWindow(); // Obtendo a janela atual
                 SoundUtil.stopSound();
 

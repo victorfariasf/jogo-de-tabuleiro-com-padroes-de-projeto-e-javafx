@@ -9,9 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;;
 
 public class ModalGanhouController {
-
+    private NovoTabuleiro tabuleiro = NovoTabuleiro.getInstance();
     @FXML
     private Label ganhouLabel;
 
@@ -91,9 +92,17 @@ public class ModalGanhouController {
 
     @FXML
     void continuarOnAction(ActionEvent event) {
-        Platform.runLater(() -> {
-            Platform.exit();
-        });
+        try {
+            Platform.runLater(() -> {
+                Stage stage = Main.getStage();
+                stage.close();
+                SoundUtil.stopSound();
+                Platform.exit();
+                System.exit(1);
+            });
+        } catch (IllegalStateException e) {
+            System.out.println("Erro ao fechar o programa ->" + e.getMessage() + "/Causa ->" + e.getCause());
+        }
 
     }
 

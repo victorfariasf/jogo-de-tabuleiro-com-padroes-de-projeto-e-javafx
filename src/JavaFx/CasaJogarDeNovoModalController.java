@@ -18,7 +18,14 @@ public class CasaJogarDeNovoModalController {
     }
 
     public void setLabels(ArrayList<Jogador> jogadores, int jogadorAtual) {
-        jogadorLabel.setText(jogadores.get(jogadorAtual).getNome() + ", ganha uma moeda");
+        tabuleiro.verificarCasa(jogadorAtual);
+        jogadorLabel.setText(jogadores.get(jogadorAtual).getNome() + ", poderá jogar de novo");
+        som();
+    }
+
+    public void som() {
+        SoundUtil.playSound(
+                "Mario Lucky.wav");
     }
 
     @FXML
@@ -35,7 +42,7 @@ public class CasaJogarDeNovoModalController {
         if (stage != null) {
 
             Stage stage = (Stage) continuarBtn.getScene().getWindow(); // Obtendo a janela atual
-            // SoundUtil.stopSound();
+            SoundUtil.stopSound();
 
             stage.close(); // Fechando o Stage
         }

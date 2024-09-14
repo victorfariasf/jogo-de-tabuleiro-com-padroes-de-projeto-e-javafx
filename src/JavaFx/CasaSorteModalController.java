@@ -39,7 +39,7 @@ public class CasaSorteModalController {
 
     public void somSorte() {
         SoundUtil.playSound(
-                "Sonic Ring.wav");
+                "Sonic Ring - Sound Effect (HD).wav");
     }
 
     @FXML

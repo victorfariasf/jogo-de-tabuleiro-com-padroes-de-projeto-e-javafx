@@ -18,7 +18,34 @@ public class CasaReversaModalController {
     }
 
     public void setLabels(ArrayList<Jogador> jogadores, int jogadorAtual) {
-        jogadorLabel.setText(jogadores.get(jogadorAtual).getNome() + ", ganha uma moeda");
+        Jogador jogadorMaisAtras = pegarJogadorMaisAtras(jogadores, jogadorAtual);
+        jogadorLabel.setText(jogadores.get(jogadorAtual).getNome() + ", vai trocar de lugar com "
+                + jogadorMaisAtras.getNome() + "(Pos: " + jogadorMaisAtras.getPosicao() + ")");
+        tabuleiro.verificarCasa(jogadorAtual);
+        posicaoLabel.setText(
+                jogadores.get(jogadorAtual).getNome() + ", irá pra casa->" + jogadores.get(jogadorAtual).getPosicao());
+        som();
+    }
+
+    public Jogador pegarJogadorMaisAtras(ArrayList<Jogador> jogadores, int jogadorAtual) {
+        int posicaoDoJogadorMaisAtras = Integer.MAX_VALUE;
+        int indiceDoJogadorMaisAtras = -1;
+        for (int i = 0; i < jogadores.size(); i++) {
+            Jogador x = jogadores.get(i);
+            if (x.getPosicao() < posicaoDoJogadorMaisAtras) {
+                posicaoDoJogadorMaisAtras = x.getPosicao();
+                indiceDoJogadorMaisAtras = i;
+            }
+        }
+        if (indiceDoJogadorMaisAtras == -1) {
+            throw new IllegalStateException("Nenhum jogador encontrado");
+        }
+        return jogadores.get(indiceDoJogadorMaisAtras);
+    }
+
+    public void som() {
+        SoundUtil.playSound(
+                "risada sapo.wav");
     }
 
     @FXML
@@ -29,16 +56,15 @@ public class CasaReversaModalController {
 
     @FXML
     private Label jogadorLabel;
-
     @FXML
-    private Label jogadorYLabel;
+    private Label posicaoLabel;
 
     @FXML
     void continuarOnAction(ActionEvent event) {
         if (stage != null) {
 
             Stage stage = (Stage) continuarBtn.getScene().getWindow(); // Obtendo a janela atual
-            // SoundUtil.stopSound();
+            SoundUtil.stopSound();
 
             stage.close(); // Fechando o Stage
         }

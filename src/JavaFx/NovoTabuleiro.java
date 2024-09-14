@@ -59,12 +59,10 @@ public class NovoTabuleiro {
                     casas.add(casaAzarFactory.criarCasa(i));
                 }
                 case 6 -> {
-                    casas.add(casaSurpresaFactory.criarCasa(i));
-                    // casas.add(casaReversaFactory.criarCasa(i));
+                    casas.add(casaReversaFactory.criarCasa(i));
                 }
                 case 7 -> {
-                    casas.add(casaTrocaFactory.criarCasa(i));
-                    // casas.add(casaJogarDeNovoFactory.criarCasa(i));
+                    casas.add(casaJogarDeNovoFactory.criarCasa(i));
                 }
                 case 8 -> {
                     casas.add(casaTrocaFactory.criarCasa(i));
@@ -186,13 +184,15 @@ public class NovoTabuleiro {
         }
     }
 
-    public boolean isPreso(int jogadorAtual) {
-        if (jogadores.get(jogadorAtual).isNaoPodeJogar() == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    /*
+     * public boolean isPreso(int jogadorAtual) {
+     * if (jogadores.get(jogadorAtual).isNaoPodeJogar() == true) {
+     * return true;
+     * } else {
+     * return false;
+     * }
+     * }
+     */
 
     public void moverJogador(int jogadorAtual, int somaDosDados, int rodadaAtual) {
         jogadores.get(jogadorAtual).mover(somaDosDados);

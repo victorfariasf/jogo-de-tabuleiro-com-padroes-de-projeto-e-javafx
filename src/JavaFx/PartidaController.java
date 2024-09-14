@@ -433,11 +433,18 @@ public class PartidaController {
             System.out.println(x.getDescricao());
         }
 
-        jogadorAtual++;
-        if (jogadorAtual >= jogadoresObj.size()) {
-            jogadorAtual = 0;
+        if (jogadoresObj.get(jogadorAtual).isJogarNovamente() == true) {
+            jogadoresObj.get(jogadorAtual).setJogarNovamente(false);
             rodadaAtual++;
+
+        } else {
+            jogadorAtual++;
+            if (jogadorAtual >= jogadoresObj.size()) {
+                jogadorAtual = 0;
+                rodadaAtual++;
+            }
         }
+
         atualizarMenuDeLado();
         atualizarVezDoJogador();
     }

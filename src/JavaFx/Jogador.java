@@ -8,10 +8,13 @@ public abstract class Jogador {
     protected String tipo;
     protected int posicao;
     protected int jogadas;
+
+    protected boolean jogarNovamente = false;
+
     // sobre jogada inválida
     protected boolean podeJogar = true;
     // sobre casa especial
-    protected boolean naoPodeJogar = false;
+    // protected boolean naoPodeJogar = false;
 
     protected int rodadaQuePodeJogar;
 
@@ -54,13 +57,23 @@ public abstract class Jogador {
 
     public abstract String getDescricao();
 
-    public boolean isNaoPodeJogar() {
-        return naoPodeJogar;
+    public boolean isJogarNovamente() {
+        return jogarNovamente;
     }
 
-    public void setNaoPodeJogar(boolean naoPodeJogar) {
-        this.naoPodeJogar = naoPodeJogar;
+    public void setJogarNovamente(boolean jogarNovamente) {
+        this.jogarNovamente = jogarNovamente;
     }
+
+    /*
+     * public boolean isNaoPodeJogar() {
+     * return naoPodeJogar;
+     * }
+     * 
+     * public void setNaoPodeJogar(boolean naoPodeJogar) {
+     * this.naoPodeJogar = naoPodeJogar;
+     * }
+     */
 
     public int getRodadaQuePodeJogar() {
         return rodadaQuePodeJogar;

@@ -8,15 +8,25 @@ public abstract class JogadorDecorator extends Jogador {
         this.jogador = jogador;
     }
 
-    @Override
-    public boolean isNaoPodeJogar() {
-        return jogador.isNaoPodeJogar();
+    public boolean isJogarNovamente() {
+        return jogador.isJogarNovamente();
     }
 
-    @Override
-    public void setNaoPodeJogar(boolean naoPodeJogar) {
-        jogador.setNaoPodeJogar(naoPodeJogar);
+    public void setJogarNovamente(boolean jogarNovamente) {
+        jogador.setJogarNovamente(jogarNovamente);
     }
+
+    /*
+     * @Override
+     * public boolean isNaoPodeJogar() {
+     * return jogador.isNaoPodeJogar();
+     * }
+     * 
+     * @Override
+     * public void setNaoPodeJogar(boolean naoPodeJogar) {
+     * jogador.setNaoPodeJogar(naoPodeJogar);
+     * }
+     */
 
     @Override
     public void ganharMoeda(int quantida) {

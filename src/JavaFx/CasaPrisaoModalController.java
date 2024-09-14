@@ -25,6 +25,12 @@ public class CasaPrisaoModalController {
         jogadorLabel.setText(jogadores.get(jogadorAtual).getNome() + ", caiu na prisão!");
         Image image = new Image(getClass().getResourceAsStream("./images/images_das_casas/prisao.png"));
         imageViewModal.setImage(image);
+        som();
+    }
+
+    public void som() {
+        SoundUtil.playSound(
+                "gta-wated.wav");
     }
 
     @FXML
@@ -38,7 +44,7 @@ public class CasaPrisaoModalController {
         if (stage != null) {
 
             Stage stage = (Stage) continuarBtn.getScene().getWindow(); // Obtendo a janela atual
-            // SoundUtil.stopSound();
+            SoundUtil.stopSound();
 
             stage.close(); // Fechando o Stage
         }
