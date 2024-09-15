@@ -47,28 +47,23 @@ public class NovoTabuleiro {
                     casas.add(casaSimplesFactory.criarCasa(i));
                 }
                 case 2 -> {
-                    casas.add(casaSimplesFactory.criarCasa(i));
-                    // casas.add(casaSurpresaFactory.criarCasa(i));
+
+                    casas.add(casaSurpresaFactory.criarCasa(i));
                 }
                 case 3 -> {
-                    casas.add(casaSimplesFactory.criarCasa(i));
-                    // casas.add(casaPrisaoFactory.criarCasa(i));
+                    casas.add(casaPrisaoFactory.criarCasa(i));
                 }
                 case 4 -> {
-                    casas.add(casaSimplesFactory.criarCasa(i));
-                    // casas.add(casaSorteFactory.criarCasa(i));
+                    casas.add(casaSorteFactory.criarCasa(i));
                 }
                 case 5 -> {
-                    casas.add(casaTrocaFactory.criarCasa(i));
-                    // casas.add(casaAzarFactory.criarCasa(i));
+                    casas.add(casaAzarFactory.criarCasa(i));
                 }
                 case 6 -> {
-                    casas.add(casaTrocaFactory.criarCasa(i));
-                    // casas.add(casaReversaFactory.criarCasa(i));
+                    casas.add(casaReversaFactory.criarCasa(i));
                 }
                 case 7 -> {
-                    casas.add(casaTrocaFactory.criarCasa(i));
-                    // casas.add(casaJogarDeNovoFactory.criarCasa(i));
+                    casas.add(casaJogarDeNovoFactory.criarCasa(i));
                 }
                 case 8 -> {
                     casas.add(casaTrocaFactory.criarCasa(i));
@@ -389,6 +384,12 @@ public class NovoTabuleiro {
     public void mostrarJogadores() {
         for (Jogador x : jogadores) {
             System.out.println(x.getDescricao());
+        }
+    }
+
+    public void mostrarCasasEIndices() {
+        for (int i = 0; i < casas.size(); i++) {
+            System.out.println(casas.get(i) + ", índice " + (i + 1));
         }
     }
 

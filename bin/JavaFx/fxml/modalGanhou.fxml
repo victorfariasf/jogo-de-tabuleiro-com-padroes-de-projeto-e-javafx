@@ -54,11 +54,12 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="jogador1" layoutX="52.0" layoutY="292.0" />
-            <Label fx:id="jogador2" layoutX="52.0" layoutY="326.0" />
-            <Label fx:id="jogador3" layoutX="52.0" layoutY="355.0" />
-            <Label fx:id="jogador4" layoutX="156.0" layoutY="292.0" />
-            <Label fx:id="jogador5" layoutX="156.0" layoutY="326.0" />
+            <Label fx:id="jogador1" layoutX="55.0" layoutY="33.0" prefHeight="17.0" prefWidth="532.0" text="aa" />
+            <Label fx:id="jogador2" layoutX="55.0" layoutY="67.0" prefHeight="17.0" prefWidth="532.0" text="aa" />
+            <Label fx:id="jogador3" layoutX="55.0" layoutY="96.0" prefHeight="17.0" prefWidth="532.0" text="aa" />
+            <Label fx:id="jogador4" layoutX="55.0" layoutY="283.0" prefHeight="17.0" prefWidth="430.0" text="aa" />
+            <Label fx:id="jogador5" layoutX="55.0" layoutY="317.0" prefHeight="17.0" prefWidth="430.0" text="aa" />
+            <Label fx:id="jogador6" layoutX="55.0" layoutY="346.0" prefHeight="17.0" prefWidth="430.0" text="aa" />
          </children>
     </AnchorPane>
   </children>

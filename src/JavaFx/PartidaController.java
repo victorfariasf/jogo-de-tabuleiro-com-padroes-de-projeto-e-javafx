@@ -26,6 +26,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.application.Platform;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class PartidaController {
 
     ArrayList<String> jogadores = new ArrayList<>();
@@ -75,6 +78,7 @@ public class PartidaController {
                         escolhaDaCasaLabel.setDisable(false);
                         rolarDados.setDisable(true);
                         passarJogada.setDisable(true);
+                        fachada.mostrarCasasESeusIndices();
                     }
                 }
             }
@@ -562,7 +566,7 @@ public class PartidaController {
                         fachada.mostrarTelaFinal(jogadorAtual);
                     } else {
                         fachada.mostrarTela(jogadorAtual, rodadaAtual);
-                        // debug
+                        // debug no terminal
                         fachada.mostrarDescricoes();
                         PauseTransition delay = new PauseTransition(Duration.seconds(1));
                         delay.setOnFinished(e -> passarJogadaAction(event));
@@ -578,7 +582,26 @@ public class PartidaController {
 
     @FXML
     void continuarOnAction(ActionEvent event) {
-
+        if (escolhaDaCasaLabel.getText() == null || escolhaDaCasaLabel.getText().isEmpty()) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Nenhuma casa selecionada");
+            alert.setContentText("Por favor, escolha uma casa antes de continuar.");
+            alert.showAndWait();
+        }
+        String casaDesejaString = escolhaDaCasaLabel.getText();
+        int casaDesejadaInt = Integer.parseInt(casaDesejaString);
+        fachada.andarNoTabuleiro(jogadorAtual, casaDesejadaInt, rodadaAtual);
+        boolean fimDeJogo = fachada.verificaSeAlguemGanhou(jogadorAtual);
+        if (fimDeJogo == true) {
+            fachada.mostrarTelaFinal(jogadorAtual);
+        } else {
+            fachada.mostrarTela(jogadorAtual, rodadaAtual);
+            // debug no terminal
+            fachada.mostrarDescricoes();
+        }
+        escolhaDaCasaLabel.clear();
+        passarJogadaAction(event);
     }
 
     public Stage getStage() {

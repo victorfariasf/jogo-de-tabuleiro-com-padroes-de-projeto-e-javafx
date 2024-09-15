@@ -52,6 +52,9 @@ public class ModalGanhouController {
     @FXML
     private Label jogador5;
 
+    @FXML
+    private Label jogador6;
+
     public void atualizarTela(ArrayList<Jogador> x, Jogador ganhador) {
         int i = 0;
 
@@ -74,6 +77,9 @@ public class ModalGanhouController {
                     break;
                 case 4:
                     jogador5.setText(jogador.getNome() + " | Posição: " + Integer.toString(jogador.getPosicao()));
+                    break;
+                case 5:
+                    jogador6.setText(jogador.getNome() + " | Posição: " + Integer.toString(jogador.getPosicao()));
                     break;
                 default:
                     break;

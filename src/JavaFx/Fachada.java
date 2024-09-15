@@ -90,6 +90,10 @@ public class Fachada {
         tabuleiro.setDebugMode(opcao);
     }
 
+    public void mostrarCasasESeusIndices() {
+        tabuleiro.mostrarCasasEIndices();
+    }
+
     /*
      * public boolean verificaJogadaInvalida(Jogador jogador, int dadoUmValor, int
      * dadoDoisValor, Stage stage) {
