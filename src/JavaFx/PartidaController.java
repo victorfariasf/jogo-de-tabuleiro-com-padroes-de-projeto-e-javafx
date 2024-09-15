@@ -145,6 +145,24 @@ public class PartidaController {
     private Label posicao6;
 
     @FXML
+    private Label moedas1;
+
+    @FXML
+    private Label moedas2;
+
+    @FXML
+    private Label moedas3;
+
+    @FXML
+    private Label moedas4;
+
+    @FXML
+    private Label moedas5;
+
+    @FXML
+    private Label moedas6;
+
+    @FXML
     private Label posicaoJogadorAtual;
 
     @FXML
@@ -431,26 +449,37 @@ public class PartidaController {
                 case 0:
                     jogador1.setText(jogador.getNome());
                     posicao1.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas1.setText("Moedas: " + jogador.getMoedas());
                     break;
                 case 1:
                     jogador2.setText(jogador.getNome());
                     posicao2.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas2.setText("Moedas: " + jogador.getMoedas());
+
                     break;
                 case 2:
                     jogador3.setText(jogador.getNome());
                     posicao3.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas3.setText("Moedas: " + jogador.getMoedas());
+
                     break;
                 case 3:
                     jogador4.setText(jogador.getNome());
                     posicao4.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas4.setText("Moedas: " + jogador.getMoedas());
+
                     break;
                 case 4:
                     jogador5.setText(jogador.getNome());
                     posicao5.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas5.setText("Moedas: " + jogador.getMoedas());
+
                     break;
                 case 5:
                     jogador6.setText(jogador.getNome());
                     posicao6.setText("Posição: " + Integer.toString(jogador.getPosicao()));
+                    moedas6.setText("Moedas: " + jogador.getMoedas());
+
                     break;
                 default:
                     break;

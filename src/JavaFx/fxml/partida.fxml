@@ -60,32 +60,32 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="jogador1" layoutX="456.0" layoutY="67.0" text="Jogadores 1">
+            <Label fx:id="jogador1" layoutX="383.0" layoutY="67.0" text="Jogadores 1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="jogador2" layoutX="456.0" layoutY="87.0" text="Jogadores 2">
+            <Label fx:id="jogador2" layoutX="383.0" layoutY="85.0" text="Jogadores 2">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="jogador3" layoutX="456.0" layoutY="107.0" text="Jogadores 3">
+            <Label fx:id="jogador3" layoutX="383.0" layoutY="107.0" text="Jogadores 3">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="jogador4" layoutX="456.0" layoutY="127.0" text="Jogadores 4">
+            <Label fx:id="jogador4" layoutX="383.0" layoutY="127.0" text="Jogadores 4">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="jogador5" layoutX="456.0" layoutY="147.0" text="Jogadores 5">
+            <Label fx:id="jogador5" layoutX="383.0" layoutY="147.0" text="Jogadores 5">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="jogador6" layoutX="456.0" layoutY="167.0" text="Jogadores 6">
+            <Label fx:id="jogador6" layoutX="383.0" layoutY="167.0" text="Jogadores 6">
                <font>
                   <Font size="14.0" />
                </font>
@@ -107,32 +107,32 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="posicao1" layoutX="552.0" layoutY="67.0" text="Posição">
+            <Label fx:id="posicao1" layoutX="474.0" layoutY="67.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="posicao2" layoutX="552.0" layoutY="87.0" text="Posição">
+            <Label fx:id="posicao2" layoutX="474.0" layoutY="87.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="posicao3" layoutX="552.0" layoutY="107.0" text="Posição">
+            <Label fx:id="posicao3" layoutX="474.0" layoutY="107.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="posicao4" layoutX="552.0" layoutY="127.0" text="Posição">
+            <Label fx:id="posicao4" layoutX="474.0" layoutY="127.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="posicao5" layoutX="552.0" layoutY="147.0" text="Posição">
+            <Label fx:id="posicao5" layoutX="474.0" layoutY="147.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="posicao6" layoutX="552.0" layoutY="167.0" text="Posição">
+            <Label fx:id="posicao6" layoutX="474.0" layoutY="167.0" text="Posição">
                <font>
                   <Font size="14.0" />
                </font>
@@ -158,13 +158,43 @@
                   <Image url="@../images/imagens_da_peca/vazio.png" />
                </image>
             </ImageView>
-            <Label fx:id="descricaoJogadorLabel" alignment="TOP_LEFT" layoutX="35.0" layoutY="90.0" prefHeight="46.0" prefWidth="401.0" text="Vez do jogador" wrapText="true">
+            <Label fx:id="descricaoJogadorLabel" alignment="TOP_LEFT" layoutX="35.0" layoutY="90.0" prefHeight="46.0" prefWidth="335.0" text="Vez do jogador" wrapText="true">
                <font>
-                  <Font size="14.0" />
+                  <Font size="11.0" />
                </font>
             </Label>
             <TextField fx:id="escolhaDaCasaLabel" layoutX="149.0" layoutY="333.0" promptText="Qual casa deseja ir" />
             <Button fx:id="continuarBtn" layoutX="150.0" layoutY="360.0" mnemonicParsing="false" onAction="#continuarOnAction" prefHeight="25.0" prefWidth="149.0" text="Continuar" />
+            <Label fx:id="moedas1" layoutX="544.0" layoutY="66.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="moedas2" layoutX="544.0" layoutY="87.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="moedas3" layoutX="544.0" layoutY="107.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="moedas4" layoutX="544.0" layoutY="127.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="moedas5" layoutX="544.0" layoutY="147.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="moedas6" layoutX="544.0" layoutY="167.0" prefHeight="20.0" prefWidth="64.0" text="moedas">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
   </children>
