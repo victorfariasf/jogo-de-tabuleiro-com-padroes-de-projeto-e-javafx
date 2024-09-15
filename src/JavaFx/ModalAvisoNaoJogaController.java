@@ -56,13 +56,13 @@ public class ModalAvisoNaoJogaController {
     @FXML
     void pagarOnAction(ActionEvent event) {
         if (stage != null) {
-            if (jogador.getMoedas() == 0) {
-                semMoedasLabel.setText("Jogador não possui moedas!");
+            if (jogador.getMoedas() < 2) {
+                semMoedasLabel.setText("Jogador não possui moedas suficientes!");
                 pagarBtn.setDisable(true);
             } else {
                 jogador.setPodeJogar(true);
                 jogador.setRodadasSemJogar(0);
-                jogador.gastarMoeda(1);
+                jogador.gastarMoeda(2);
                 Stage stage = (Stage) pagarBtn.getScene().getWindow(); // Obtendo a janela atual
                 SoundUtil.stopSound();
 

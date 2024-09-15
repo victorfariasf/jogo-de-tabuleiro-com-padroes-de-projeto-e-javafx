@@ -47,22 +47,28 @@ public class NovoTabuleiro {
                     casas.add(casaSimplesFactory.criarCasa(i));
                 }
                 case 2 -> {
-                    casas.add(casaSurpresaFactory.criarCasa(i));
+                    casas.add(casaSimplesFactory.criarCasa(i));
+                    // casas.add(casaSurpresaFactory.criarCasa(i));
                 }
                 case 3 -> {
-                    casas.add(casaPrisaoFactory.criarCasa(i));
+                    casas.add(casaSimplesFactory.criarCasa(i));
+                    // casas.add(casaPrisaoFactory.criarCasa(i));
                 }
                 case 4 -> {
-                    casas.add(casaSorteFactory.criarCasa(i));
+                    casas.add(casaSimplesFactory.criarCasa(i));
+                    // casas.add(casaSorteFactory.criarCasa(i));
                 }
                 case 5 -> {
-                    casas.add(casaAzarFactory.criarCasa(i));
+                    casas.add(casaTrocaFactory.criarCasa(i));
+                    // casas.add(casaAzarFactory.criarCasa(i));
                 }
                 case 6 -> {
-                    casas.add(casaReversaFactory.criarCasa(i));
+                    casas.add(casaTrocaFactory.criarCasa(i));
+                    // casas.add(casaReversaFactory.criarCasa(i));
                 }
                 case 7 -> {
-                    casas.add(casaJogarDeNovoFactory.criarCasa(i));
+                    casas.add(casaTrocaFactory.criarCasa(i));
+                    // casas.add(casaJogarDeNovoFactory.criarCasa(i));
                 }
                 case 8 -> {
                     casas.add(casaTrocaFactory.criarCasa(i));
@@ -101,13 +107,13 @@ public class NovoTabuleiro {
             jogador.gastarMoeda(1);
             Jogador jogadorDecorado = new BoneDecorator(jogador);
             atualizarLista(jogadorDecorado, jogadorAtual);
-        } else if (!jogador.getDescricao().contains("oculos")) {
-            jogador.gastarMoeda(1);
-            Jogador jogadorDecorado = new OculosDecorator(jogador);
-            atualizarLista(jogadorDecorado, jogadorAtual);
         } else if (!jogador.getDescricao().contains("moleton")) {
             jogador.gastarMoeda(1);
             Jogador jogadorDecorado = new MoletonDecorator(jogador);
+            atualizarLista(jogadorDecorado, jogadorAtual);
+        } else if (!jogador.getDescricao().contains("oculos")) {
+            jogador.gastarMoeda(1);
+            Jogador jogadorDecorado = new OculosDecorator(jogador);
             atualizarLista(jogadorDecorado, jogadorAtual);
         }
 

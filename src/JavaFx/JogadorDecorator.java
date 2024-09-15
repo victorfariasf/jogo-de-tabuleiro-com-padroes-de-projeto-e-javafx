@@ -54,6 +54,16 @@ public abstract class JogadorDecorator extends Jogador {
     }
 
     @Override
+    public int getPosicao() {
+        return jogador.getPosicao();
+    }
+
+    @Override
+    public void setPosicao(int quantida) {
+        jogador.setPosicao(quantida);
+    }
+
+    @Override
     public String getTipo() {
         return jogador.getTipo();
     }
