@@ -17,7 +17,7 @@ public class ConfigurandoPecaController {
 
     private int jogadorAtual = 1;
     private int numeroDeJogadores;
-    private Fachada fachada = new Fachada(getStage());
+    private Jogo jogo = new Jogo(getStage());
 
     @FXML
     protected void initialize() {
@@ -92,8 +92,8 @@ public class ConfigurandoPecaController {
         String nome = campoNome.getText();
         RadioButton selectedRadioButton = (RadioButton) grupoCOr.getSelectedToggle();
         String cor = selectedRadioButton.getText();
-        fachada.criarJogador(nome, cor);
-        // fachada.criarJogadores(nome, cor);
+        jogo.criarJogador(nome, cor);
+        // jogo.criarJogadores(nome, cor);
 
         jogadorAtual++;
         if (jogadorAtual <= numeroDeJogadores) {
@@ -102,9 +102,9 @@ public class ConfigurandoPecaController {
             grupoCOr.selectToggle(null);
             selectedRadioButton.setDisable(true);
         } else {
-            fachada.quantidaDeJogadores();
-            fachada.buscarJogadores();
-            Main.changeScreen("partida", fachada);
+            jogo.quantidaDeJogadores();
+            jogo.buscarJogadores();
+            Main.changeScreen("partida", jogo);
         }
 
     }

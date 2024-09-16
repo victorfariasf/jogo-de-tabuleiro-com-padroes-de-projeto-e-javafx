@@ -5,12 +5,12 @@ import javafx.stage.Stage;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Fachada {
+public class Jogo {
 
     private Stage stage;
     private NovoTabuleiro tabuleiro = NovoTabuleiro.getInstance();
 
-    public Fachada(Stage stage) {
+    public Jogo(Stage stage) {
         this.stage = stage;
     }
 
@@ -20,7 +20,7 @@ public class Fachada {
     // --------------------NOVO TABULEIRO------------------------
 
     public void configurarTabuleiro(int numeroDeCasas) {
-        tabuleiro.configurarTabuleiro(numeroDeCasas);
+        tabuleiro.defConfigurarTabuleiro(numeroDeCasas);
     }
 
     public void configurarJogadores(int numeroDeJogadores) {
@@ -35,6 +35,10 @@ public class Fachada {
     public void andarNoTabuleiro(int jogadorAtual, int somasDosDados, int rodadaAtual) {
         // tabuleiro.verificarCasa(jogador, jogadorAtual);
         tabuleiro.moverJogador(jogadorAtual, somasDosDados, rodadaAtual);
+    }
+
+    public void andarNoTabuleiroDebug(int jogadorAtual, int casaEscolhida) {
+        tabuleiro.moverDebug(jogadorAtual, casaEscolhida);
     }
 
     public void mostrarTela(int jogadorAtual, int rodadaAtual) {

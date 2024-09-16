@@ -25,7 +25,7 @@ import javafx.scene.Scene;
 
 public class TelaInicialController {
 
-    private Fachada fachada = new Fachada(getStage());
+    private Jogo jogo = new Jogo(getStage());
     private NovoTabuleiro tabuleiro = NovoTabuleiro.getInstance();
 
     @FXML
@@ -97,13 +97,13 @@ public class TelaInicialController {
         String[] numeroJogadores = selectedRadioButton.getText().split(" ");
         int qntdJogadores = Integer.parseInt(numeroJogadores[0]);
         int qntdCasas = Integer.parseInt(numeroDeCasasField.getText());
-        fachada.configurarJogadores(qntdJogadores);
-        fachada.configurarTabuleiro(qntdCasas);
+        jogo.configurarJogadores(qntdJogadores);
+        jogo.configurarTabuleiro(qntdCasas);
 
         if (dubugModeRadioBtn.isSelected()) {
-            fachada.setModoDebug(true);
+            jogo.setModoDebug(true);
         } else {
-            fachada.setModoDebug(false);
+            jogo.setModoDebug(false);
         }
         Main.changeScreen("second", selectedRadioButton.getText());
 

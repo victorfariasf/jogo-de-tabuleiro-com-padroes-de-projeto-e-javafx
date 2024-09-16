@@ -24,79 +24,55 @@ public class NovoTabuleiro {
 
     private boolean debugMode = false;
 
-    private CasaSimplesFactory casaSimplesFactory = new CasaSimplesFactory();
-    private CasaSurpresaFactory casaSurpresaFactory = new CasaSurpresaFactory();
-    private CasaPrisaoFactory casaPrisaoFactory = new CasaPrisaoFactory();
-    private CasaSorteFactory casaSorteFactory = new CasaSorteFactory();
-    private CasaAzarFactory casaAzarFactory = new CasaAzarFactory();
-    private CasaReversaFactory casaReversaFactory = new CasaReversaFactory();
-    private CasaJogarDeNovoFactory casaJogarDeNovoFactory = new CasaJogarDeNovoFactory();
-    private CasaTrocaFactory casaTrocaFactory = new CasaTrocaFactory();
-
-    private JogadorFactory azaradoFactory = new AzaradoFactory();
-    private JogadorFactory sortudoFactory = new SortudoFactory();
-    private JogadorFactory comumFactory = new ComumFactory();
+    private DefCasaFactory factoryCasa = new DefCasaFactory();
+    private DefJogadorFactory factoryJogador = new DefJogadorFactory();
 
     // ------------------------- INÍCIO DO JOGO -------------------------------
-    public void configurarTabuleiro(int numCasas) {
+
+    public void defConfigurarTabuleiro(int numCasas) {
         for (int i = 1; i <= numCasas; i++) {
             Random random = new Random();
             int iRandom = random.nextInt(8) + 1;
-            switch (iRandom) {
-                case 1 -> {
-                    casas.add(casaSimplesFactory.criarCasa(i));
-                }
-                case 2 -> {
-
-                    casas.add(casaSurpresaFactory.criarCasa(i));
-                }
-                case 3 -> {
-                    casas.add(casaPrisaoFactory.criarCasa(i));
-                }
-                case 4 -> {
-                    casas.add(casaSorteFactory.criarCasa(i));
-                }
-                case 5 -> {
-                    casas.add(casaAzarFactory.criarCasa(i));
-                }
-                case 6 -> {
-                    casas.add(casaReversaFactory.criarCasa(i));
-                }
-                case 7 -> {
-                    casas.add(casaJogarDeNovoFactory.criarCasa(i));
-                }
-                case 8 -> {
-                    casas.add(casaTrocaFactory.criarCasa(i));
-                }
-                default -> {
-                    casas.add(casaSimplesFactory.criarCasa(i));
-                }
-            }
+            casas.add(factoryCasa.novaCasa(iRandom, i));
         }
-        System.out.println("casas está vazio?: " + casas.isEmpty());
-        System.out.println(casas.size());
     }
+
+    /*
+     * public void criarJogador(String nome, String cor) {
+     * Random randomizador = new Random();
+     * int indiceRandomizado = randomizador.nextInt(3) + 1;
+     * switch (indiceRandomizado) {
+     * case 1 -> {
+     * jogadores.add(azaradoFactory.criarJogador(nome, cor, 0, 0));
+     * }
+     * case 2 -> {
+     * jogadores.add(sortudoFactory.criarJogador(nome, cor, 0, 0));
+     * }
+     * case 3 -> {
+     * jogadores.add(comumFactory.criarJogador(nome, cor, 0, 0));
+     * }
+     * default -> {
+     * jogadores.add(comumFactory.criarJogador(nome, cor, 0, 0));
+     * }
+     * }
+     * }
+     */
 
     public void criarJogador(String nome, String cor) {
         Random randomizador = new Random();
         int indiceRandomizado = randomizador.nextInt(3) + 1;
-        switch (indiceRandomizado) {
-            case 1 -> {
-                jogadores.add(azaradoFactory.criarJogador(nome, cor, 0, 0));
-            }
-            case 2 -> {
-                jogadores.add(sortudoFactory.criarJogador(nome, cor, 0, 0));
-            }
-            case 3 -> {
-                jogadores.add(comumFactory.criarJogador(nome, cor, 0, 0));
-            }
-            default -> {
-                jogadores.add(comumFactory.criarJogador(nome, cor, 0, 0));
-            }
-        }
+        jogadores.add(factoryJogador.criarJogador(nome, cor, 0, 0, indiceRandomizado));
+
+    }
+    // ------------------------- DURANTE O JOGO -------------------------------
+
+    public Jogador criarNovoJogador(String nome, String cor, int posicao, int jogadas) {
+        Random randomizador = new Random();
+        int indiceRandomizado = randomizador.nextInt(3) + 1;
+        return factoryJogador.criarJogador(nome, cor, posicao, jogadas,
+                indiceRandomizado);
     }
 
-    // ------------------------- DURANTE O JOGO -------------------------------
     public void decorarJogador(Jogador jogador, int jogadorAtual) {
         if (!jogador.getDescricao().contains("bone")) {
             jogador.gastarMoeda(1);
@@ -110,48 +86,6 @@ public class NovoTabuleiro {
             jogador.gastarMoeda(1);
             Jogador jogadorDecorado = new OculosDecorator(jogador);
             atualizarLista(jogadorDecorado, jogadorAtual);
-        }
-
-    }
-
-    /*
-     * public void substituirJogador(Jogador jogador, int jogadorAtual) {
-     * Jogador novoJogador = criarNovoJogador(jogador.getNome(), jogador.getCor(),
-     * jogador.getPosicao(),
-     * jogador.getJogadas());
-     * 
-     * novoJogador.setMoedas(jogador.getMoedas());
-     * 
-     * if (jogador.getDescricao().contains("moleton")) {
-     * decorarJogador(novoJogador, jogadorAtual);
-     * }
-     * if (jogador.getDescricao().contains("oculos")) {
-     * decorarJogador(novoJogador, jogadorAtual);
-     * }
-     * if (jogador.getDescricao().contains("bone")) {
-     * decorarJogador(novoJogador, jogadorAtual);
-     * }
-     * 
-     * atualizarLista(novoJogador, jogadorAtual);
-     * }
-     */
-
-    public Jogador criarNovoJogador(String nome, String cor, int posicao, int jogadas) {
-        Random randomizador = new Random();
-        int indiceRandomizado = randomizador.nextInt(3) + 1;
-        switch (indiceRandomizado) {
-            case 1 -> {
-                return azaradoFactory.criarJogador(nome, cor, posicao, jogadas);
-            }
-            case 2 -> {
-                return sortudoFactory.criarJogador(nome, cor, posicao, jogadas);
-            }
-            case 3 -> {
-                return comumFactory.criarJogador(nome, cor, posicao, jogadas);
-            }
-            default -> {
-                return comumFactory.criarJogador(nome, cor, posicao, jogadas);
-            }
         }
 
     }
@@ -185,44 +119,26 @@ public class NovoTabuleiro {
         }
     }
 
-    /*
-     * public boolean isPreso(int jogadorAtual) {
-     * if (jogadores.get(jogadorAtual).isNaoPodeJogar() == true) {
-     * return true;
-     * } else {
-     * return false;
-     * }
-     * }
-     */
-
     public void moverJogador(int jogadorAtual, int somaDosDados, int rodadaAtual) {
         jogadores.get(jogadorAtual).mover(somaDosDados);
         jogadores.get(jogadorAtual).setJogadas(1);
         if (jogadores.get(jogadorAtual).getMoedas() < 0) {
             jogadores.get(jogadorAtual).setMoedas(0);
         }
-        // verificaFimDeJogo(jogadorAtual);
-        // verificarCasa(jogadorAtual, rodadaAtual);
+    }
+
+    public void moverDebug(int jogadorAtual, int casaEscolhida) {
+        jogadores.get(jogadorAtual).setPosicao(casaEscolhida);
+        jogadores.get(jogadorAtual).setJogadas(1);
+        if (jogadores.get(jogadorAtual).getMoedas() < 0) {
+            jogadores.get(jogadorAtual).setMoedas(0);
+        }
     }
 
     // --------------NOVAS CASAS ESPECIAIS------------------------
 
     public void chamarTelaDaCasa(int jogadorAtual, int rodadaAtual) {
         Platform.runLater(() -> {
-            /*
-             * System.out.println("Stage é nulo?: " + stage == null);
-             * System.out.println("Tamanho da lista jogadores: " + jogadores.size());
-             * System.out.println("jogador atual: " + jogadorAtual);
-             * System.out.println("Posição do jogador atual: " +
-             * jogadores.get(jogadorAtual).getPosicao());
-             * System.out.println("Tamanho da lista casas: " + casas.size());
-             * System.out.println("Qual é a casa: " +
-             * casas.get(casaAtualNumero).getClass());
-             * System.out.println("Lista de jogadores do tabuleiro é vazio?: " +
-             * this.jogadores.isEmpty());
-             * System.out.println("Lista de jogadores que vem de fora é vazia?: " +
-             * jogadores.isEmpty());
-             */
             int casaAtualNumero = jogadores.get(jogadorAtual).getPosicao() - 1;
             Casa casaAtual = casas.get(casaAtualNumero);
             if (casaAtual instanceof CasaSimples) {
@@ -353,17 +269,6 @@ public class NovoTabuleiro {
     }
 
     // *****************
-
-    /*
-     * public boolean verificaJogarNaPartidaAtual(Jogador jogador, int partidaAtual,
-     * Stage stage) {
-     * if (jogador.getPodeJogar() == false) {
-     * avisoNaoJogar(jogador, stage);
-     * return true;
-     * }
-     * return false;
-     * }
-     */
 
     private void avisoNaoJogar(Jogador jogador, Stage stage) {
         Platform.runLater(() -> {

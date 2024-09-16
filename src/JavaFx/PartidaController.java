@@ -33,7 +33,7 @@ public class PartidaController {
 
     ArrayList<String> jogadores = new ArrayList<>();
     ArrayList<Jogador> jogadoresObj = new ArrayList<>();
-    Fachada fachada = new Fachada(getStage());
+    private Jogo jogo = new Jogo(getStage());
 
     @FXML
     protected void initialize() {
@@ -42,9 +42,9 @@ public class PartidaController {
             public void onScreenChanged(String newScreen, Object userData) {
                 if (newScreen.equals("partida")) {
                     System.out.println("nova tela: " + newScreen + " ," + userData);
-                    if (userData instanceof Fachada) {
+                    if (userData instanceof Jogo) {
                         System.out.println("entrou no if da partidaCOntroller");
-                        jogadoresObj = fachada.pegarListaDeJogadores();
+                        jogadoresObj = jogo.pegarListaDeJogadores();
 
                         jogador1.setText("");
                         jogador2.setText("");
@@ -68,7 +68,7 @@ public class PartidaController {
                     // tabuleiro.adicionarJogadores();
                     atualizarVezDoJogador();
 
-                    if (fachada.modoDebug() == false) {
+                    if (jogo.modoDebug() == false) {
                         continuarBtn.setDisable(true);
                         escolhaDaCasaLabel.setDisable(true);
                         rolarDados.setDisable(false);
@@ -78,7 +78,7 @@ public class PartidaController {
                         escolhaDaCasaLabel.setDisable(false);
                         rolarDados.setDisable(true);
                         passarJogada.setDisable(true);
-                        fachada.mostrarCasasESeusIndices();
+                        jogo.mostrarCasasESeusIndices();
                     }
                 }
             }
@@ -499,7 +499,7 @@ public class PartidaController {
     @FXML
     void passarJogadaAction(ActionEvent event) {
 
-        jogadoresObj = fachada.pegarListaDeJogadores();
+        jogadoresObj = jogo.pegarListaDeJogadores();
 
         for (Jogador x : jogadoresObj) {
             System.out.println(x.getDescricao());
@@ -522,7 +522,7 @@ public class PartidaController {
     }
 
     /*
-     * f (fachada.verificaPodeJogarPartidaAtual(jogadoresObj.get(jogadorAtual),
+     * f (jogo.verificaPodeJogarPartidaAtual(jogadoresObj.get(jogadorAtual),
      * rodadaAtual, getStage())) {
      * PauseTransition delay = new PauseTransition(Duration.seconds(2));
      * delay.setOnFinished(e -> passarJogadaAction(event));
@@ -532,7 +532,7 @@ public class PartidaController {
 
     @FXML
     void rolarDadosAction(ActionEvent event) {
-        if (fachada.jogadorPodeJogar(rodadaAtual, jogadorAtual) == false) {
+        if (jogo.jogadorPodeJogar(rodadaAtual, jogadorAtual) == false) {
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(e -> passarJogadaAction(event));
             delay.play();
@@ -551,7 +551,7 @@ public class PartidaController {
 
             PauseTransition transicaoMostrarDados = new PauseTransition(Duration.seconds(1));
             transicaoMostrarDados.setOnFinished(e1 -> {
-                if (fachada.verificarJogadaInvalida(jogadoresObj.get(jogadorAtual), valorDado1, valorDado2,
+                if (jogo.verificarJogadaInvalida(jogadoresObj.get(jogadorAtual), valorDado1, valorDado2,
                         getStage())) {
                     PauseTransition delay = new PauseTransition(Duration.seconds(1));
                     delay.setOnFinished(e -> passarJogadaAction(event));
@@ -560,14 +560,14 @@ public class PartidaController {
                     // jogadoresObj.get(jogadorAtual).mover(somaDosValores);
                     // jogadoresObj.get(jogadorAtual).setJogadas(1);
                     // tabuleiro.AndarNoTabuleiro(jogadoresObj.get(jogadorAtual), somaDosValores);
-                    fachada.andarNoTabuleiro(jogadorAtual, somaDosValores, rodadaAtual);
-                    boolean fimDeJogo = fachada.verificaSeAlguemGanhou(jogadorAtual);
+                    jogo.andarNoTabuleiro(jogadorAtual, somaDosValores, rodadaAtual);
+                    boolean fimDeJogo = jogo.verificaSeAlguemGanhou(jogadorAtual);
                     if (fimDeJogo == true) {
-                        fachada.mostrarTelaFinal(jogadorAtual);
+                        jogo.mostrarTelaFinal(jogadorAtual);
                     } else {
-                        fachada.mostrarTela(jogadorAtual, rodadaAtual);
+                        jogo.mostrarTela(jogadorAtual, rodadaAtual);
                         // debug no terminal
-                        fachada.mostrarDescricoes();
+                        jogo.mostrarDescricoes();
                         PauseTransition delay = new PauseTransition(Duration.seconds(1));
                         delay.setOnFinished(e -> passarJogadaAction(event));
                         delay.play();
@@ -591,17 +591,33 @@ public class PartidaController {
         }
         String casaDesejaString = escolhaDaCasaLabel.getText();
         int casaDesejadaInt = Integer.parseInt(casaDesejaString);
-        fachada.andarNoTabuleiro(jogadorAtual, casaDesejadaInt, rodadaAtual);
-        boolean fimDeJogo = fachada.verificaSeAlguemGanhou(jogadorAtual);
+        /*
+         * jogo.andarNoTabuleiroDebug(jogadorAtual, casaDesejadaInt);
+         * boolean fimDeJogo = jogo.verificaSeAlguemGanhou(jogadorAtual);
+         * if (fimDeJogo == true) {
+         * jogo.mostrarTelaFinal(jogadorAtual);
+         * } else {
+         * jogo.mostrarTela(jogadorAtual, rodadaAtual);
+         * // debug no terminal
+         * jogo.mostrarDescricoes();
+         * }
+         * escolhaDaCasaLabel.clear();
+         * passarJogadaAction(event);
+         */
+
+        jogo.andarNoTabuleiroDebug(jogadorAtual, casaDesejadaInt);
+        boolean fimDeJogo = jogo.verificaSeAlguemGanhou(jogadorAtual);
         if (fimDeJogo == true) {
-            fachada.mostrarTelaFinal(jogadorAtual);
+            jogo.mostrarTelaFinal(jogadorAtual);
         } else {
-            fachada.mostrarTela(jogadorAtual, rodadaAtual);
+            jogo.mostrarTela(jogadorAtual, rodadaAtual);
             // debug no terminal
-            fachada.mostrarDescricoes();
+            jogo.mostrarDescricoes();
+            escolhaDaCasaLabel.clear();
+            PauseTransition delay = new PauseTransition(Duration.seconds(1));
+            delay.setOnFinished(e -> passarJogadaAction(event));
+            delay.play();
         }
-        escolhaDaCasaLabel.clear();
-        passarJogadaAction(event);
     }
 
     public Stage getStage() {
